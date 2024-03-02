@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.sparta.library.dto.userDto.UserRequestDto;
 
 @Entity
 @Table(name = "user")
@@ -30,4 +31,11 @@ public class User {
 
     @Column(name = "address", nullable = false)
     private String address;
+
+    public User(UserRequestDto requestDto) {
+        this.name = requestDto.getName();
+        this.gender = requestDto.getGender();
+        this.phoneNumber = requestDto.getPhoneNumber();
+        this.address = requestDto.getAddress();
+    }
 }
