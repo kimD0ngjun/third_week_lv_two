@@ -35,6 +35,7 @@ public class User {
     public User(UserRequestDto requestDto) {
         this.name = requestDto.getName();
         this.gender = requestDto.getGender();
+        this.identificationNumber = requestDto.getIdentificationNumber();
         this.phoneNumber = requestDto.getPhoneNumber();
         this.address = requestDto.getAddress();
     }
