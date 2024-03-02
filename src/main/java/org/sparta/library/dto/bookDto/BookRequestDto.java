@@ -5,8 +5,7 @@ import lombok.Getter;
 import java.util.Date;
 
 @Getter
-public class bookResponseDto {
-    private Long bookId;
+public class BookRequestDto {
     private String title;
     private String writer;
     private String language;
