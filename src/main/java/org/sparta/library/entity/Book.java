@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Book {
+public class Book extends Timestamped {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")
@@ -30,9 +30,6 @@ public class Book {
 
     @Column(name = "publisher", nullable = false)
     private String publisher;
-
-    @Column(name = "registration_date", nullable = false)
-    private Date registrationDate;
 
     public Book(BookRequestDto requestDto) {
         this.title = requestDto.getTitle();
