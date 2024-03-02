@@ -18,7 +18,7 @@ public class Loan {
     @Column(name = "loan_id")
     private Long loanId;
 
-    @ManyToOne
+    @ManyToOne // 외래키 지정할 때 쓰는 어노테이션 : ManyToOne, JoinColumn
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     private User user;
 
