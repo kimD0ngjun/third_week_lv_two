@@ -16,6 +16,7 @@ public class BookServiceImpl implements BookService {
 
     private final BookRepository bookRepository;
 
+    // save
     @Override
     @Transactional
     public BookResponseDto createBook(BookRequestDto requestDto) {
@@ -29,6 +30,7 @@ public class BookServiceImpl implements BookService {
         return new BookResponseDto(saveBook);
     }
 
+    // get unit
     @Override
     public BookResponseDto getBook(Long bookId) {
         // find book
@@ -38,6 +40,7 @@ public class BookServiceImpl implements BookService {
         return new BookResponseDto(book);
     }
 
+    // get all
     @Override
     public List<BookResponseDto> getBooks() {
         return bookRepository.findAllByOrderByCreatedAtAsc().stream()
