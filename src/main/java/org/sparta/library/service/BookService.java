@@ -3,12 +3,14 @@ package org.sparta.library.service;
 import org.sparta.library.dto.bookDto.BookRequestDto;
 import org.sparta.library.dto.bookDto.BookResponseDto;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 public interface BookService {
     // 객체 생성
+    @Transactional
     BookResponseDto createBook(BookRequestDto requestDto);
 
     // 단일 조회
