@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.sparta.library.dto.bookDto.BookRequestDto;
 
 import java.util.Date;
 
@@ -32,4 +33,11 @@ public class Book {
 
     @Column(name = "registration_date", nullable = false)
     private Date registrationDate;
+
+    public Book(BookRequestDto requestDto) {
+        this.title = requestDto.getTitle();
+        this.writer = requestDto.getWriter();
+        this.language = requestDto.getLanguage();
+        this.publisher = requestDto.getPublisher();
+    }
 }
