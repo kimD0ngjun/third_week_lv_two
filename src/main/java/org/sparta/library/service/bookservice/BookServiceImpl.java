@@ -1,4 +1,4 @@
-package org.sparta.library.service;
+package org.sparta.library.service.bookservice;
 
 import lombok.RequiredArgsConstructor;
 import org.sparta.library.dto.bookDto.BookRequestDto;

@@ -1,4 +1,4 @@
-package org.sparta.library.service;
+package org.sparta.library.service.userservice;
 
 import org.springframework.stereotype.Service;
 

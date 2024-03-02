@@ -1,4 +1,4 @@
-package org.sparta.library.service;
+package org.sparta.library.service.bookservice;
 
 import org.sparta.library.dto.bookDto.BookRequestDto;
 import org.sparta.library.dto.bookDto.BookResponseDto;
