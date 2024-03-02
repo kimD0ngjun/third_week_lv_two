@@ -1,14 +1,9 @@
-package org.sparta.library.entity;
+package org.sparta.library.dto.userDto;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@NoArgsConstructor
 @Getter
-@Setter
-public class User {
-    private Long userId;
+public class userRequestDto {
     private String name;
     private String gender;
     private String identificationNumber;
