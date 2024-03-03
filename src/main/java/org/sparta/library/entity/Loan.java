@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Loan {
+public class Loan extends LoanTimestamped {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "loan_id")
@@ -28,10 +28,10 @@ public class Loan {
 
     @Column(name = "book_return", nullable = false)
     private Boolean bookReturn;
-
-    @Column(name = "loan_date", nullable = false)
-    private LocalDateTime loanDate;
-
-    @Column(name = "return_date") // 반납 전에는 null로 두고, 반납 후에 그 값을 기록시키기
-    private LocalDateTime returnDate;
+//
+//    @Column(name = "loan_date", nullable = false)
+//    private LocalDateTime loanDate;
+//
+//    @Column(name = "return_date") // 반납 전에는 null로 두고, 반납 후에 그 값을 기록시키기
+//    private LocalDateTime returnDate;
 }
