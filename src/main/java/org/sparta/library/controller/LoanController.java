@@ -1,9 +1,12 @@
 package org.sparta.library.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.sparta.library.dto.loanDto.LoanResponseDto;
 import org.sparta.library.service.loanservice.LoanService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -25,4 +28,8 @@ public class LoanController {
     }
 
     // 회원 기반 대출 내역 조회
+    @GetMapping("/loan/{userId}")
+    public List<LoanResponseDto> getLoans(@PathVariable Long userId) {
+        return loanService.getLoans(userId);
+    };
 }
