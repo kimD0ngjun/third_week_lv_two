@@ -32,6 +32,6 @@ public class Loan {
     @Column(name = "loan_date", nullable = false)
     private Date loanDate;
 
-    @Column(name = "return_date", nullable = false)
+    @Column(name = "return_date") // 반납 전에는 null로 두고, 반납 후에 그 값을 기록시키기
     private Date returnDate;
 }
