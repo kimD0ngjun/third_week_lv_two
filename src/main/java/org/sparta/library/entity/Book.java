@@ -6,14 +6,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.sparta.library.dto.bookDto.BookRequestDto;
 
-import java.util.Date;
-
 @Entity
 @Table(name = "book")
 @NoArgsConstructor
 @Getter
 @Setter
-public class Book extends Timestamped {
+public class Book extends BookTimestamped {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")

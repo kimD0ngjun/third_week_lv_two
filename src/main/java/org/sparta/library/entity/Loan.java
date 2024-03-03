@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "loan")
@@ -30,8 +30,8 @@ public class Loan {
     private Boolean bookReturn;
 
     @Column(name = "loan_date", nullable = false)
-    private Date loanDate;
+    private LocalDateTime loanDate;
 
     @Column(name = "return_date") // 반납 전에는 null로 두고, 반납 후에 그 값을 기록시키기
-    private Date returnDate;
+    private LocalDateTime returnDate;
 }
