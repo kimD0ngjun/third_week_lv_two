@@ -14,8 +14,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -74,13 +76,16 @@ public class LoanServiceImpl implements LoanService {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("이미 반납 처리됐습니다.");
         }
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("존재하지 않는 대출 정보입니다.");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("존재하지 않는 대출 정보입니다.");
     }
 
     // 조건부 조회(회원 ID 외래키 기반)
     @Override
     public List<LoanResponseDto> getLoans(Long userId) {
-        return null;
+        List<Loan> userLoanList = loanRepository.findByUser_UserId(userId);
+
+        return userLoanList.stream().sorted(Comparator.comparing(Loan::getCreatedAt))
+                .map(LoanResponseDto::new).collect(Collectors.toList());
     }
 
     // 모든 대출이 반환되었는지 확인하는 메소드

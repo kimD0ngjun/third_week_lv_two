@@ -13,4 +13,7 @@ public interface LoanRepository extends JpaRepository<Loan, Long> {
 
     // 도서 ID와 회원 ID로 Loan 엔티티 조회 메소드
     Loan findByUser_UserIdAndBook_BookId(Long userId, Long bookId);
+
+    // 회원 ID로 Loan 엔티티 조회 메소드
+    List<Loan> findByUser_UserId(Long userId);
 }
