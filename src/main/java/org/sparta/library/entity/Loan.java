@@ -34,4 +34,10 @@ public class Loan extends LoanTimestamped {
 //
 //    @Column(name = "return_date") // 반납 전에는 null로 두고, 반납 후에 그 값을 기록시키기
 //    private LocalDateTime returnDate;
+
+    public Loan(User user, Book book) {
+        this.user = user;
+        this.book = book;
+        this.bookReturn = false; // 대여 당시에는 책 반납 안 된 상태 초기화
+    }
 }

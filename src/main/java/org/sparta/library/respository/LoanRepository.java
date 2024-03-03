@@ -4,6 +4,10 @@ import org.sparta.library.entity.Loan;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface LoanRepository extends JpaRepository<Loan, Long> {
+    // 도서 ID 기반 엔티티 조회 메소드
+    List<Loan> findByBook_BookId(Long bookId);
 }
