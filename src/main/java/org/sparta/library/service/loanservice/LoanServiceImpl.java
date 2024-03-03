@@ -62,7 +62,7 @@ public class LoanServiceImpl implements LoanService {
     @Transactional
     public ResponseEntity<String> updateLoan(Long userId, Long bookId) {
         // 도서 ID와 회원 ID로 Loan 엔티티 조회
-        Loan loan = loanRepository.findByBook_BookIdAndUser_UserId(userId, bookId);
+        Loan loan = loanRepository.findByUser_UserIdAndBook_BookId(userId, bookId);
 
         // 조건부 엔티티 수정
         if (loan != null && !loan.getBookReturn()) {
