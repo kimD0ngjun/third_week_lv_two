@@ -9,6 +9,7 @@ import org.sparta.library.model.entity.User;
 import org.sparta.library.respository.BookRepository;
 import org.sparta.library.respository.LoanRepository;
 import org.sparta.library.respository.UserRepository;
+import org.sparta.library.utility.ResponseMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -47,13 +48,13 @@ public class LoanServiceImpl implements LoanService {
                 Loan loan = new Loan(user, book);
                 loanRepository.save(loan);
 
-                return ResponseEntity.ok("대출 처리에 성공했습니다.");
+                return ResponseEntity.ok(ResponseMessage.BORROW_SUCCESS.getMessage());
             } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("사용자 혹은 도서가 존재하지 않습니다.");
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ResponseMessage.WRONG_BORROW.getMessage());
             }
         }
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("현재 대출 중입니다.");
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ResponseMessage.IMPOSSIBLE_BORROW.getMessage());
     }
 
     // 객체 수정(도서 반납)
@@ -68,12 +69,12 @@ public class LoanServiceImpl implements LoanService {
             loan.setBookReturn(true); // 반납 처리
             loan.setModifiedAt(LocalDateTime.now()); // 수정된 시간 설정
 
-            return ResponseEntity.ok("반납 처리에 성공했습니다.");
+            return ResponseEntity.ok(ResponseMessage.RETURN_SUCCESS.getMessage());
         } else if (loan != null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("이미 반납 처리됐습니다.");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ResponseMessage.DUPLICATED_RETURN.getMessage());
         }
 
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("존재하지 않는 대출 정보입니다.");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ResponseMessage.WRONG_RETURN.getMessage());
     }
 
     // 조건부 조회(회원 ID 외래키 기반)
