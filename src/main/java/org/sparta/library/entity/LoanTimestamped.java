@@ -21,7 +21,7 @@ public abstract class LoanTimestamped {
     private LocalDateTime createdAt;
 
     @LastModifiedDate
-    @Column(name = "return_date", updatable = false)
+    @Column(name = "return_date")
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime modifiedAt;
 }
