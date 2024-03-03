@@ -38,14 +38,10 @@ public class LoanServiceImpl implements LoanService {
         if (loanList.isEmpty() || allBooksReturned(loanList)) {
             Optional<User> userOptional = userRepository.findById(userId);
             Optional<Book> bookOptional = bookRepository.findById(bookId);
-            System.out.println("유저 : " + userOptional.get().getName() + " || 유저 아이디 : " + userId);
-            System.out.println("도서 : " + bookOptional.get().getTitle() + " || 도서 아이디 : " + bookId); // 책이 없다고 나오네?
 
             if (userOptional.isPresent() && bookOptional.isPresent()) {
                 User user = userOptional.get();
-                System.out.println(user.getName());
                 Book book = bookOptional.get();
-                System.out.println(book.getTitle());
 
                 // 새로운 대출 entity 생성 및 저장
                 Loan loan = new Loan(user, book);
