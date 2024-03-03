@@ -1,4 +1,4 @@
-package org.sparta.library.dto.userDto;
+package org.sparta.library.model.dto.userDto;
 
 import lombok.Getter;
 

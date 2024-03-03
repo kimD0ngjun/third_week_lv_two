@@ -2,9 +2,9 @@ package org.sparta.library.service.userservice;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.sparta.library.dto.userDto.UserRequestDto;
-import org.sparta.library.dto.userDto.UserResponseDto;
-import org.sparta.library.entity.userentity.User;
+import org.sparta.library.model.dto.userDto.UserRequestDto;
+import org.sparta.library.model.dto.userDto.UserResponseDto;
+import org.sparta.library.model.entity.User;
 import org.sparta.library.respository.UserRepository;
 import org.springframework.stereotype.Service;
 

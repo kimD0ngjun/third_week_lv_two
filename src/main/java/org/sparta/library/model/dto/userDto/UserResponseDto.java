@@ -1,7 +1,7 @@
-package org.sparta.library.dto.userDto;
+package org.sparta.library.model.dto.userDto;
 
 import lombok.Getter;
-import org.sparta.library.entity.userentity.User;
+import org.sparta.library.model.entity.User;
 
 @Getter
 public class UserResponseDto {

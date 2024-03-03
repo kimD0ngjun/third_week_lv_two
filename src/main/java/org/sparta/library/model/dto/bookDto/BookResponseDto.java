@@ -1,7 +1,7 @@
-package org.sparta.library.dto.bookDto;
+package org.sparta.library.model.dto.bookDto;
 
 import lombok.Getter;
-import org.sparta.library.entity.bookentity.Book;
+import org.sparta.library.model.entity.Book;
 
 import java.time.LocalDateTime;
 

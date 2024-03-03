@@ -1,10 +1,11 @@
-package org.sparta.library.entity.bookentity;
+package org.sparta.library.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.sparta.library.dto.bookDto.BookRequestDto;
+import org.sparta.library.model.dto.bookDto.BookRequestDto;
+import org.sparta.library.utility.BookTimestamped;
 
 @Entity
 @Table(name = "book")

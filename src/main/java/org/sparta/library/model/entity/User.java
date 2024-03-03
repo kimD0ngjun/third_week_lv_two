@@ -1,10 +1,10 @@
-package org.sparta.library.entity.userentity;
+package org.sparta.library.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.sparta.library.dto.userDto.UserRequestDto;
+import org.sparta.library.model.dto.userDto.UserRequestDto;
 
 @Entity
 @Table(name = "user")

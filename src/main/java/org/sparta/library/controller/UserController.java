@@ -1,8 +1,8 @@
 package org.sparta.library.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.sparta.library.dto.userDto.UserRequestDto;
-import org.sparta.library.dto.userDto.UserResponseDto;
+import org.sparta.library.model.dto.userDto.UserRequestDto;
+import org.sparta.library.model.dto.userDto.UserResponseDto;
 import org.sparta.library.service.userservice.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

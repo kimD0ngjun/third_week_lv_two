@@ -1,6 +1,6 @@
 package org.sparta.library.service.loanservice;
 
-import org.sparta.library.dto.loanDto.LoanResponseDto;
+import org.sparta.library.model.dto.loanDto.LoanResponseDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
