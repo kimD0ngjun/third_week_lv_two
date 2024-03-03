@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -59,8 +60,21 @@ public class LoanServiceImpl implements LoanService {
     // 객체 수정(도서 반납)
     @Override
     @Transactional
-    public ResponseEntity<String> updateLoan(Long bookId, Long userId) {
-        return null;
+    public ResponseEntity<String> updateLoan(Long userId, Long bookId) {
+        // 도서 ID와 회원 ID로 Loan 엔티티 조회
+        Loan loan = loanRepository.findByBook_BookIdAndUser_UserId(userId, bookId);
+
+        // 조건부 엔티티 수정
+        if (loan != null && !loan.getBookReturn()) {
+            loan.setBookReturn(true); // 반납 처리
+            loan.setModifiedAt(LocalDateTime.now()); // 수정된 시간 설정
+
+            return ResponseEntity.ok("반납 처리에 성공했습니다.");
+        } else if (loan != null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("이미 반납 처리됐습니다.");
+        }
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("존재하지 않는 대출 정보입니다.");
     }
 
     // 조건부 조회(회원 ID 외래키 기반)

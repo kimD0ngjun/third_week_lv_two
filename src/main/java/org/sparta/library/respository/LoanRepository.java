@@ -10,4 +10,7 @@ import java.util.List;
 public interface LoanRepository extends JpaRepository<Loan, Long> {
     // 도서 ID 기반 엔티티 조회 메소드
     List<Loan> findByBook_BookId(Long bookId);
+
+    // 도서 ID와 회원 ID로 Loan 엔티티 조회 메소드
+    Loan findByBook_BookIdAndUser_UserId(Long userId, Long bookId);
 }
