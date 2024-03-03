@@ -1,4 +1,4 @@
-package org.sparta.library.entity;
+package org.sparta.library.entity.loanentity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

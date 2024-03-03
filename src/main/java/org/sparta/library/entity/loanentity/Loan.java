@@ -1,11 +1,11 @@
-package org.sparta.library.entity;
+package org.sparta.library.entity.loanentity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.LocalDateTime;
+import org.sparta.library.entity.userentity.User;
+import org.sparta.library.entity.bookentity.Book;
 
 @Entity
 @Table(name = "loan")

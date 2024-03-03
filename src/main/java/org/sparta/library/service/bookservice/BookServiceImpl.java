@@ -3,7 +3,7 @@ package org.sparta.library.service.bookservice;
 import lombok.RequiredArgsConstructor;
 import org.sparta.library.dto.bookDto.BookRequestDto;
 import org.sparta.library.dto.bookDto.BookResponseDto;
-import org.sparta.library.entity.Book;
+import org.sparta.library.entity.bookentity.Book;
 import org.sparta.library.respository.BookRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

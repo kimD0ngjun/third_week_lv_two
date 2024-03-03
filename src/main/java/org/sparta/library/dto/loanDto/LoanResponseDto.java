@@ -1,7 +1,7 @@
 package org.sparta.library.dto.loanDto;
 
 import lombok.Getter;
-import org.sparta.library.entity.Loan;
+import org.sparta.library.entity.loanentity.Loan;
 
 @Getter
 public class LoanResponseDto {

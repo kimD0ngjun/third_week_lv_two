@@ -1,10 +1,9 @@
 package org.sparta.library.dto.bookDto;
 
 import lombok.Getter;
-import org.sparta.library.entity.Book;
+import org.sparta.library.entity.bookentity.Book;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Getter
 public class BookResponseDto {
