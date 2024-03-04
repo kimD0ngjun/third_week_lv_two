@@ -1,4 +1,4 @@
-package org.sparta.library.model.dto.loanDto;
+package org.sparta.library.model.dto.loandto;
 
 import lombok.Getter;
 import org.sparta.library.model.entity.Loan;

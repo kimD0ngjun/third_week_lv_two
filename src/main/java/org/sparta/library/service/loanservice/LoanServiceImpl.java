@@ -2,7 +2,7 @@ package org.sparta.library.service.loanservice;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.sparta.library.model.dto.loanDto.LoanResponseDto;
+import org.sparta.library.model.dto.loandto.LoanResponseDto;
 import org.sparta.library.model.entity.Book;
 import org.sparta.library.model.entity.Loan;
 import org.sparta.library.model.entity.User;

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.sparta.library.model.dto.bookDto.BookRequestDto;
+import org.sparta.library.model.dto.bookdto.BookRequestDto;
 import org.sparta.library.utility.BookTimestamped;
 
 @Entity

@@ -1,7 +1,7 @@
 package org.sparta.library.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.sparta.library.model.dto.loanDto.LoanResponseDto;
+import org.sparta.library.model.dto.loandto.LoanResponseDto;
 import org.sparta.library.service.loanservice.LoanService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

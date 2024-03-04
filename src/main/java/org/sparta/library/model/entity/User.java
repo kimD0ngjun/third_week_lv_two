@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.sparta.library.model.dto.userDto.UserRequestDto;
+import org.sparta.library.model.dto.userdto.UserRequestDto;
 
 @Entity
 @Table(name = "user")

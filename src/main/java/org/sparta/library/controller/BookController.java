@@ -1,8 +1,8 @@
 package org.sparta.library.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.sparta.library.model.dto.bookDto.BookRequestDto;
-import org.sparta.library.model.dto.bookDto.BookResponseDto;
+import org.sparta.library.model.dto.bookdto.BookRequestDto;
+import org.sparta.library.model.dto.bookdto.BookResponseDto;
 import org.sparta.library.service.bookservice.BookService;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,7 @@
 package org.sparta.library.service.bookservice;
 
-import org.sparta.library.model.dto.bookDto.BookRequestDto;
-import org.sparta.library.model.dto.bookDto.BookResponseDto;
+import org.sparta.library.model.dto.bookdto.BookRequestDto;
+import org.sparta.library.model.dto.bookdto.BookResponseDto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,7 +1,7 @@
 package org.sparta.library.service.loanservice;
 
 import jakarta.transaction.Transactional;
-import org.sparta.library.model.dto.loanDto.LoanResponseDto;
+import org.sparta.library.model.dto.loandto.LoanResponseDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
