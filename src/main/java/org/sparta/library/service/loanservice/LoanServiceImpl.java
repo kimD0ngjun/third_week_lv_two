@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -73,7 +74,9 @@ public class LoanServiceImpl implements LoanService {
             // TODO: 연체 패넡티 적용
             if (loan.givePenalty() && userOptional.isPresent()) {
                 User user = userOptional.get();
-                user.setPenalty(true);
+                LocalDateTime penaltyDeadLine = loan.getModifiedAt().plusWeeks(2);
+
+                user.setPenalty(penaltyDeadLine); // 패널티 시한일 부과
 
                 return ResponseEntity.ok("연체로 2주일 간 대여가 불가능합니다. 대출 처리 완료됐습니다.");
             }
