@@ -48,7 +48,7 @@ public class User {
     }
 
     // 연체 패널티 부여 여부
-    public LocalDateTime setPenalty(LocalDateTime createdAt, LocalDateTime modifiedAt) {
+    public LocalDateTime givePenalty(LocalDateTime createdAt, LocalDateTime modifiedAt) {
         Duration duration = Duration.between(createdAt, modifiedAt);
         long days = duration.toDays();
 
