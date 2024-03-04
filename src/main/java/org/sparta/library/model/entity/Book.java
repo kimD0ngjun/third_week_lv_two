@@ -30,10 +30,14 @@ public class Book extends BookTimestamped {
     @Column(name = "publisher", nullable = false)
     private String publisher;
 
+    @Column(name = "borrow", nullable = false)
+    private Boolean whetherBorrow;
+
     public Book(BookRequestDto requestDto) {
         this.title = requestDto.getTitle();
         this.writer = requestDto.getWriter();
         this.language = requestDto.getLanguage();
         this.publisher = requestDto.getPublisher();
+        this.whetherBorrow = true; // 책이 생성될 때는 언제나 대여 가능하므로
     }
 }

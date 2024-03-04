@@ -13,6 +13,7 @@ public class BookResponseDto {
     private String language;
     private String publisher;
     private LocalDateTime registrationDate;
+    private Boolean whetherBorrow;
 
     public BookResponseDto(Book book) {
         this.bookId = book.getBookId();
@@ -21,5 +22,6 @@ public class BookResponseDto {
         this.language = book.getLanguage();
         this.publisher = book.getPublisher();
         this.registrationDate = book.getCreatedAt();
+        this.whetherBorrow = book.getWhetherBorrow();
     }
 }

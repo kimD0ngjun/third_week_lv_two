@@ -51,6 +51,7 @@ public class LoanServiceImpl implements LoanService {
                 if (user.getPenalty() == null || now.isAfter(user.getPenalty())) {
                     user.setPenalty(null); // 연체했을 경우에는 재초기화
                     // 새로운 대출 entity 생성 및 저장
+                    book.setWhetherBorrow(false);
                     Loan loan = new Loan(user, book);
                     loanRepository.save(loan);
 
@@ -73,9 +74,12 @@ public class LoanServiceImpl implements LoanService {
         // 도서 ID와 회원 ID로 Loan 엔티티 조회
         Loan loan = loanRepository.findByUser_UserIdAndBook_BookId(userId, bookId);
         Optional<User> userOptional = userRepository.findById(userId);
+        Optional<Book> bookOptional = bookRepository.findById(bookId);
 
         // 조건부 엔티티 수정
-        if (loan != null && !loan.getBookReturn()) {
+        if (loan != null && !loan.getBookReturn() && bookOptional.isPresent()) {
+            Book book = bookOptional.get();
+            book.setWhetherBorrow(true);
             loan.setBookReturn(true); // 반납 처리
             loan.setModifiedAt(LocalDateTime.now()); // 수정된 시간 설정
 
