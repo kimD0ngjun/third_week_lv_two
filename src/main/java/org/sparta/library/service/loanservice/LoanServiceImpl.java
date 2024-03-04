@@ -45,11 +45,19 @@ public class LoanServiceImpl implements LoanService {
                 User user = userOptional.get();
                 Book book = bookOptional.get();
 
-                // 새로운 대출 entity 생성 및 저장
-                Loan loan = new Loan(user, book);
-                loanRepository.save(loan);
+                // TODO: 연체 여부 확인
+                LocalDateTime now = LocalDateTime.now();
 
-                return ResponseEntity.ok(ResponseMessage.BORROW_SUCCESS.getMessage());
+                if (user.getPenalty() == null || now.isAfter(user.getPenalty())) {
+                    user.setPenalty(null); // 연체했을 경우에는 재초기화
+                    // 새로운 대출 entity 생성 및 저장
+                    Loan loan = new Loan(user, book);
+                    loanRepository.save(loan);
+
+                    return ResponseEntity.ok(ResponseMessage.BORROW_SUCCESS.getMessage());
+                }
+
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("연체일로부터 14일이 경과하지 않아서 대여가 불가능합니다.");
             } else {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ResponseMessage.WRONG_BORROW.getMessage());
             }
