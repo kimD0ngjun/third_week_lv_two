@@ -58,7 +58,7 @@ public class LoanServiceImpl implements LoanService {
                     return ResponseEntity.ok(ResponseMessage.BORROW_SUCCESS.getMessage());
                 }
 
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("연체일로부터 14일이 경과하지 않아서 대여가 불가능합니다.");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ResponseMessage.PENALTY_BORROW.getMessage());
             } else {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ResponseMessage.WRONG_BORROW.getMessage());
             }
@@ -90,7 +90,7 @@ public class LoanServiceImpl implements LoanService {
 
                 user.setPenalty(penaltyDeadLine); // 패널티 시한일 부과
 
-                return ResponseEntity.ok("연체로 2주일 간 대여가 불가능합니다. 대출 처리 완료됐습니다.");
+                return ResponseEntity.ok(ResponseMessage.PENALTY_GIVEN_RETURN.getMessage());
             }
 
             return ResponseEntity.ok(ResponseMessage.RETURN_SUCCESS.getMessage());
