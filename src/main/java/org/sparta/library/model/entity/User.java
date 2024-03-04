@@ -6,9 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.sparta.library.model.dto.userdto.UserRequestDto;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "user")
 @NoArgsConstructor
@@ -46,17 +43,17 @@ public class User {
         this.address = requestDto.getAddress();
         this.penalty = false; // 초기 생성은 패널티 x
     }
-
-    // 연체 패널티 부여 여부
-    public LocalDateTime givePenalty(LocalDateTime createdAt, LocalDateTime modifiedAt) {
-        Duration duration = Duration.between(createdAt, modifiedAt);
-        long days = duration.toDays();
-
-        if (days > 7) {
-            this.penalty = true;
-            return modifiedAt; // 반납일이 곧 패널티 시작일
-        }
-
-        return null;
-    }
+//
+//    // 연체 패널티 부여 여부
+//    public LocalDateTime givePenalty(LocalDateTime createdAt, LocalDateTime modifiedAt) {
+//        Duration = Duration.between(createdAt, modifiedAt);
+//        long days = duration.toDays();
+//
+//        if (days > 7) {
+//            this.penalty = true;
+//            return modifiedAt; // 반납일이 곧 패널티 시작일
+//        }
+//
+//        return null;
+//    }
 }

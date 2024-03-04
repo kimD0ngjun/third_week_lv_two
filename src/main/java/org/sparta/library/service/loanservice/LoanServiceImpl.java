@@ -63,11 +63,20 @@ public class LoanServiceImpl implements LoanService {
     public ResponseEntity<String> updateLoan(Long userId, Long bookId) {
         // 도서 ID와 회원 ID로 Loan 엔티티 조회
         Loan loan = loanRepository.findByUser_UserIdAndBook_BookId(userId, bookId);
+        Optional<User> userOptional = userRepository.findById(userId);
 
         // 조건부 엔티티 수정
         if (loan != null && !loan.getBookReturn()) {
             loan.setBookReturn(true); // 반납 처리
             loan.setModifiedAt(LocalDateTime.now()); // 수정된 시간 설정
+
+            // TODO: 연체 패넡티 적용
+            if (loan.givePenalty() && userOptional.isPresent()) {
+                User user = userOptional.get();
+                user.setPenalty(true);
+
+                return ResponseEntity.ok("연체로 2주일 간 대여가 불가능합니다. 대출 처리 완료됐습니다.");
+            }
 
             return ResponseEntity.ok(ResponseMessage.RETURN_SUCCESS.getMessage());
         } else if (loan != null) {
