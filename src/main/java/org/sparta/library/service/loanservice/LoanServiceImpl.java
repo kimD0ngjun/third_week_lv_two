@@ -83,6 +83,7 @@ public class LoanServiceImpl implements LoanService {
         List<Loan> userLoanList = loanRepository.findByUser_UserId(userId);
 
         return userLoanList.stream().sorted(Comparator.comparing(Loan::getCreatedAt))
+                .filter(loan -> !loan.getBookReturn()) // TODO: 추가기능(반납 미완료 내역만 조회)
                 .map(LoanResponseDto::new).collect(Collectors.toList());
     }
 
