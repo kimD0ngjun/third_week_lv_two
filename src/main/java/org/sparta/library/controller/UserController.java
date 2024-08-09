@@ -20,8 +20,8 @@ public class UserController {
 
     // 회원 등록 기능
     @PostMapping("/user")
-    @Timed(value = "http.requests.timed", description = "회원 등록 POST 호출에 걸리는 시간")
-    @Counted(value = "http.requests.count", description = "회원 등록 POST 호출에 드는 리소스")
+    @Timed("user.timed")
+    @Counted("user.count")
     public UserResponseDto createUser(@RequestBody UserRequestDto userRequestDto) {
         return userService.createUser(userRequestDto);
     }

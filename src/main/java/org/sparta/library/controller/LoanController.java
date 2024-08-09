@@ -19,24 +19,24 @@ public class LoanController {
 
     // 대출 처리
     @PostMapping("/loan/{userId}")
-    @Timed(value = "http.requests.timed", description = "책 대출 요청 POST 호출에 걸리는 시간")
-    @Counted(value = "http.requests.count", description = "책 대출 요청 POST 호출에 드는 리소스")
+    @Timed("loan.create.timed")
+    @Counted("loan.create.count")
     public ResponseEntity<String> createLoan(@PathVariable Long userId, @RequestParam Long bookId) {
         return loanService.createLoan(userId, bookId);
     }
 
     // 대출 반납
     @PutMapping("/loan/{userId}") // 수정시간 업뎃 안 됨
-    @Timed(value = "http.requests.timed", description = "책 반납 요청 PUT 호출에 걸리는 시간")
-    @Counted(value = "http.requests.count", description = "책 반납 요청 PUT 호출에 드는 리소스")
+    @Timed("loan.update.timed")
+    @Counted("loan.update.count")
     public ResponseEntity<String> updateLoan(@PathVariable Long userId, @RequestParam Long bookId) {
         return loanService.updateLoan(userId, bookId);
     }
 
     // 회원 기반 대출 내역 조회
     @GetMapping("/loan/{userId}")
-    @Timed(value = "http.requests.timed", description = "회원별 책 대출 내역 조회 GET 호출에 걸리는 시간")
-    @Counted(value = "http.requests.count", description = "회원별 책 대출 내역 조회 GET 호출에 드는 리소스")
+    @Timed("loan.get.timed")
+    @Counted("loan.get.count")
     public List<LoanResponseDto> getLoans(@PathVariable Long userId) {
         return loanService.getLoans(userId);
     };
