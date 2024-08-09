@@ -4,6 +4,8 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build
+application.yml
+prometheus.yml
 gradlew
 gradlew.bat
 settings.gradle
@@ -21,8 +23,6 @@ bin/
 !**/src/test/**/bin/
 
 ### IntelliJ IDEA ###
-application.properties
-
 .idea
 *.iws
 *.iml
