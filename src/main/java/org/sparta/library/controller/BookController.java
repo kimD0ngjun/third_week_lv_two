@@ -19,7 +19,7 @@ public class BookController {
     // 도서 등록 기능
     @PostMapping("/book")
     @Timed("book.create.timed")
-    @Counted("book.create.count")
+    @Counted("api.book.create.count")
     public BookResponseDto createBook(@RequestBody BookRequestDto bookRequestDto) {
         return bookService.createBook(bookRequestDto);
     }
